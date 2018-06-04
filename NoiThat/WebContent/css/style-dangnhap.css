@@ -14,3 +14,39 @@ h2 {
 	text-align: center;
 	color: #fff;
 }
+
+body {
+	margin-top: 50px;
+}
+
+.glyphicon {
+	margin-right: 10px;
+}
+
+.panel-body {
+	padding: 0px;
+}
+
+.panel-body table tr td {
+	padding-left: 15px
+}
+
+.panel-body .table {
+	margin-bottom: 0px;
+}
+
+.nav-search {
+	position: absolute;
+	top: 6px;
+	right: 22px;
+	line-height: 24px;
+}
+.button{
+	width: 189px;
+}
+/*
+
+
+
+
+*/

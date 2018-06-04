@@ -8,6 +8,6 @@
 </head>
 <body>
 <h1>hello</h1>
-<a href="admin/login.htm">login</a>
+<a href="admin/admin-login.htm">login</a>
 </body>
 </html>

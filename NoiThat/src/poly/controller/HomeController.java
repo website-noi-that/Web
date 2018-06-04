@@ -1,4 +1,4 @@
-package poly.controller;
+	package poly.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,7 +13,10 @@ public class HomeController {
 	@Transactional
 	@RequestMapping(value = "index")
 	public String login(ModelMap model) {
-		return "user/dangnhap";
+		return "user/index";
 	}
-	
+	@RequestMapping(value = "index1")
+	public String index(ModelMap model) {
+		return "user/index1";
+	}
 }

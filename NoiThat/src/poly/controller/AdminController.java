@@ -7,6 +7,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.apache.tomcat.jni.User;
 import org.hibernate.Query;
@@ -17,11 +18,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import poly.entity.Quyen;
 import poly.entity.Users;
 
 @Controller
@@ -36,7 +39,14 @@ public class AdminController {
 		model.addAttribute("login", new Users());
 		return "admin/dangnhap";
 	}
-
+	
+	@Transactional
+	@RequestMapping(value = "admin-login")
+	public String adminlogin(ModelMap model) {
+		model.addAttribute("login", new Users());
+		return "admin/admin-login";
+	}
+	
 	@Transactional
 	@RequestMapping("index")
 	public String index() {
@@ -50,52 +60,54 @@ public class AdminController {
 
 		HttpSession session1 = request.getSession();
 		Session session = factory.getCurrentSession();
-		String hql = "from Users where TenDangNhap = '" + user.getTenDangNhap() + "'";
+		String hql = "from Users where TenDangNhap = '" + user.getTenDangNhap().trim() + "'";
 		Query query = session.createQuery(hql);
 		Users u = (Users) query.uniqueResult();
 		try {
 			if (u == null) {
 				model.addAttribute("messager1", "Tài Khoản Không Tồn Tại");
-				return "admin/dangnhap";
+				return "admin/admin-login";
 			}
 			if (u.getMatKhau().equals(MD5Library.md5(user.getMatKhau()))) {
 				// if (u.getMaUsers().equals("admin")) {
-				// session1.setAttribute("username", u.getTenDangNhap());
-				// session1.setAttribute("quyen", u.getMaUsers());
+				session1.setAttribute("username", u.getTenDangNhap());
+				session1.setAttribute("quyen", u.getMaQuyen());
 				// Create cookies
-				Cookie c1 = new Cookie("name", u.getTenDangNhap());
-				Cookie c2 = new Cookie("pass", u.getMatKhau());
-				Cookie c3 = new Cookie("id", u.getMaUsers().toString());
+				Cookie username = new Cookie("username", u.getTenDangNhap());
+			    Cookie pass = new Cookie("pass", u.getMatKhau());
+				Cookie idquyen = new Cookie("quyen", u.getMaQuyen().toString());
+				username.setMaxAge(0);
+		        pass.setMaxAge(0);
 				// Thêm cả cookie vào response.
-				response.addCookie(c1);
-				response.addCookie(c2);
-				response.addCookie(c3);
+				response.addCookie(username);
+				response.addCookie(pass);
+				response.addCookie(idquyen);
 				// return "redirect:admin.htm";
 				// } else {
 				//
 				// return "redirect:index.htm";
 				// }
-				model.addAttribute("users", user.getTenDangNhap());
 				return "redirect:index.htm";
 			} else {
+				model.addAttribute("user", user.getTenDangNhap());
 				model.addAttribute("messager2", "Mật Khẩu Sai");
-				return "admin/dangnhap";
+				return "admin/admin-login";
 			}
 		} catch (Exception e) {
 			model.addAttribute("messager1", "lỗi kết nối");
-			return "admin/dangnhap";
+			return "admin/admin-login";
 		}
 	}
 
 	@RequestMapping("logout")
 	public String logout(HttpServletResponse response) {
-		Cookie c1 = new Cookie("name", "");
-		Cookie c2 = new Cookie("pass", "");
-		Cookie c3 = new Cookie("id", "");
-		response.addCookie(c1);
-		response.addCookie(c2);
-		response.addCookie(c3);
-		return "redirect:login.htm";
+		Cookie username = new Cookie("username", "");
+		Cookie pass = new Cookie("pass", "");
+		Cookie idquyen = new Cookie("quyen", "");
+		response.addCookie(username);
+		response.addCookie(pass);
+		response.addCookie(idquyen);
+		return "redirect:admin-login.htm";
 	}
 
 	@Transactional
@@ -109,6 +121,7 @@ public class AdminController {
 		return "admin/list-user-admin";
 	}
 
+	// thêm tài khoản nhân viên
 	@Transactional
 	@RequestMapping(value = "add")
 	public String add(ModelMap model) {
@@ -121,23 +134,33 @@ public class AdminController {
 
 	@Transactional
 	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public String add(ModelMap model, @ModelAttribute("Adduser") Users Us) {
+	public String add(ModelMap model, @Valid @ModelAttribute("Adduser") Users Us, BindingResult result) {
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
-		System.out.println(Us.getMatKhau());
-		try {
-			session.save(Us);
-			t.commit();
-			System.out.println("thêm thành công");
-		} catch (Exception e) {
-			t.rollback();
-			System.out.println("them that bai" + e.getMessage());
-		} finally {
-			session.close();
+		String MD5 = MD5Library.md5(Us.getMatKhau());
+		Us.setMatKhau(MD5);
+		if (result.hasErrors()) {
+			return "admin/tk-admin/them";
+		} else {
+			try {
+
+				session.save(Us);
+				t.commit();
+				System.out.println("thêm thành công");
+				return "redirect:list-user-admin.htm";
+			} catch (Exception e) {
+				t.rollback();
+				System.out.println("them that bai" + e.getMessage());
+				return "redirect:add.htm";
+			} finally {
+				session.close();
+			}
+
 		}
-		return "redirect:list-user-admin.htm";
+
 	}
 
+	// xóa tài khoản nhân viên
 	@Transactional
 	@RequestMapping(value = "delete/{id}")
 	public String delete(ModelMap model, @PathVariable("id") String id) {
@@ -157,6 +180,7 @@ public class AdminController {
 		return "redirect:/admin/list-user-admin.htm";
 	}
 
+	// sửa tài khoản nhân viên
 	@Transactional
 	@RequestMapping(value = "edit/{id}")
 	public String edit(ModelMap model, @PathVariable("id") String id) {
@@ -171,7 +195,7 @@ public class AdminController {
 
 	@Transactional
 	@RequestMapping(value = "edit/{id}", method = RequestMethod.POST)
-	public String edit1(ModelMap model, @ModelAttribute("edituser") Users Us, @PathVariable("id") String id) {
+	public String edit(ModelMap model, @ModelAttribute("edituser") Users Us, @PathVariable("id") String id) {
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
 		String MD5 = MD5Library.md5(Us.getMatKhau());
@@ -180,12 +204,15 @@ public class AdminController {
 			session.update(id, Us);
 			t.commit();
 			System.out.println("sua thành công");
+			return "redirect:/admin/list-user-admin.htm";
 		} catch (Exception e) {
 			t.rollback();
 			System.out.println("sua thất bại" + e.getMessage());
+			return "redirect:/admin/edit/" + id + ".htm";
 		} finally {
 			session.close();
 		}
-		return "redirect:/admin/list-user-admin.htm";
+
 	}
+
 }

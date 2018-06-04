@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "users")
@@ -11,9 +14,15 @@ public class Users {
 	@Id
 	@GeneratedValue
     private String MaUsers;
+	@Size(min=0, max=45)
+	@NotEmpty(message="Tài khoản không được để trống")
     private String TenDangNhap;
+	@Size(min=0, max=45)
+	@NotEmpty(message="Mật Khẩu không được để trống")
     private String MatKhau;
+	@NotEmpty(message="Mã Nhân viên không được để trống")
     private String MaNhanVien;
+	@NotEmpty(message="Mã Quyền không được để trống")
     private String MaQuyen;
 	
     public Users() {

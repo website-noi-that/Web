@@ -1,0 +1,52 @@
+.label-grey, .badge-grey {
+	background-color: #a0a0a0 !important;
+}
+
+.label-important, .badge-important {
+	background-color: #d15b47 !important;
+}
+
+.label-success, .badge-success {
+	background-color: #82af6f !important;
+}
+
+.green {
+	color: #69aa46 !important;
+}
+
+.purple {
+	color: #a069c3 !important;
+}
+
+.grey {
+	color: #777 !important;
+}
+
+.nav-header {
+	
+}
+
+.dropdown-navbar {
+	padding: 0;
+	width: 240px;
+	height: 272px;
+	-webkit-box-shadow: 0 2px 4px rgba(30, 30, 100, 0.25);
+	-moz-box-shadow: 0 2px 4px rgba(30, 30, 100, 0.25);
+	box-shadow: 0px 2px 4px rgba(30, 30, 100, 0.25);
+	border-color: #bcd4e5;
+	-webkit-box-shadow: 0 2px 4px rgba(30, 30, 100, 0.25);
+}
+
+.sidebar {
+	width: 189px;
+	position: relative;
+	float: left;
+	height: 1px;
+	overflow: visible;
+	border-right: 1px solid #ccc;
+	background-color: #f2f2f2;
+}
+.button{
+	float: right;
+	
+}

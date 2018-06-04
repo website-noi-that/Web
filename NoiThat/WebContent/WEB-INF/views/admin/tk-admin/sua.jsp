@@ -3,7 +3,7 @@
 <body>
 	<div class="col-sm-10">
 		<div class="tab-content ">
-		<h2>Thêm Tài Khoản Nhân Viên</h2>
+		<h2>Sửa Tài Khoản Nhân Viên</h2>
 		<hr>
 		<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 		<c:forEach var="list" items="${list}">
