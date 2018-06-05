@@ -5,7 +5,7 @@
 		<div class="tab-content ">
 			<h2>Thêm Quyền</h2>
 			<hr>
-			<form:form action="add.htm" modelAttribute="add-quyen" method="POST">
+			<form:form action="${contextPath}/NoiThat/quyen/add.htm" modelAttribute="add-quyen" method="POST">
 				<div class="form-group">
 					<label>Tên Quyền :</label> <input type="text" class="form-control"
 						id="TenQuyen" name="TenQuyen">

@@ -7,7 +7,7 @@
 		<hr>
 		<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 		<c:forEach var="list" items="${list}">
-			<form:form action="${list.maUsers}.htm" modelAttribute="edituser" method="POST">
+			<form:form action="${contextPath}/NoiThat/admin/edit/${list.maUsers}.htm" modelAttribute="edituser" method="POST">
 			<div class="form-group">
 				<label>Mã User :</label> <input type="text" class="form-control"
 					id="MaUsers" name="MaUsers" value="${list.maUsers}">

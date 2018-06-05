@@ -8,7 +8,7 @@
 			<h2>Sửa Quyền</h2>
 			<hr>
 			<c:forEach var="list" items="${list}">
-				<form:form action="${list.maQuyen}.htm" modelAttribute="edit-quyen" method="POST">
+				<form:form action="${contextPath}/NoiThat/quyen/edit/${list.maQuyen}.htm" modelAttribute="edit-quyen" method="POST">
 					<div class="form-group">
 						<label>Mã Quyền :</label> <input type="text" class="form-control"
 							id="MaQuyen" name="MaQuyen" value="${list.maQuyen}">

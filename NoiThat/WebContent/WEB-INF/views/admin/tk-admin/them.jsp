@@ -5,7 +5,7 @@
 		<div class="tab-content ">
 			<h2>Thêm Tài Khoản Nhân Viên</h2>
 			<hr>
-			<form:form action="add.htm" modelAttribute="Adduser" method="POST">
+			<form:form action="${contextPath}/NoiThat/admin/add.htm" modelAttribute="Adduser" method="POST">
 				<div class="form-group">
 					<label>Tài Khoản :</label> <input type="text" class="form-control"
 						id="TenDangNhap" name="TenDangNhap">

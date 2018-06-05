@@ -50,3 +50,6 @@
 	float: right;
 	
 }
+.navbar-header{
+	padding-right: 50px !important;
+}

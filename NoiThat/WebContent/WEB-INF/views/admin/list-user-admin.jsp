@@ -7,7 +7,7 @@
 		<div>
 			<h2>
 				<b>Danh Sách Tài Khoản Nhân Viên</b> <a type="button"
-					class="button btn btn-success" href="add.htm"><span
+					class="button btn btn-success" href="${contextPath}/NoiThat/admin/add.htm"><span
 					class="glyphicon glyphicon-import"></span> Thêm Tài Khoản</a>
 			</h2>
 
@@ -30,10 +30,10 @@
 					<td>${us.matKhau}</td>
 					<td>${us.maNhanVien}</td>
 					<td>${us.maQuyen}</td>
-					<td><a type="button" class="btn" href="edit/${us.maUsers}.htm"><span
+					<td><a type="button" class="btn" href="${contextPath}/NoiThat/admin/edit/${us.maUsers}.htm"><span
 							class="glyphicon glyphicon-edit"></span> Sửa</a></td>
 					<td><a type="button" class="btn"
-						href="delete/${us.maUsers}.htm"><span
+						href="${contextPath}/NoiThat/admin/delete/${us.maUsers}.htm"><span
 							class="glyphicon glyphicon-remove"></span> Xóa</a></td>
 				</tr>
 			</c:forEach>

@@ -18,11 +18,18 @@
 	<bean id="dataSource" 
 	    	class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 			p:driverClassName="com.mysql.jdbc.Driver"
-			p:url="jdbc:mysql://localhost:3306/noithat?useSSL=false"
-			p:username="root"
-			p:password="123456">
+			p:url="jdbc:mysql://sql12.freesqldatabase.com:3306/sql12241219"
+			p:username="sql12241219"
+			p:password="7IWD4eTSab">
 	</bean>
-	
+	<!-- Kết nối CSDL 
+	<bean id="dataSource" 
+	    	class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+			p:driverClassName="com.mysql.jdbc.Driver"
+			p:url="jdbc:mysql://sql12.freesqldatabase.com:3306/sql12241219"
+			p:username="sql12241219"
+			p:password="7IWD4eTSab">
+	</bean>-->
 	<!-- Cấu hình Hibernate -->
 	<bean id="sessionFactory" 
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">

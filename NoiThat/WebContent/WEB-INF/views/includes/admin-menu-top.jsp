@@ -33,7 +33,7 @@
 
 					<li class="divider"></li>
 
-					<li><a href="#"> <i class="glyphicon glyphicon-log-out"></i>
+					<li><a href="${contextPath}/NoiThat/admin/logout.htm"> <i class="glyphicon glyphicon-log-out"></i>
 							Đăng Xuất
 					</a></li>
 				</ul></li>

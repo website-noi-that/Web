@@ -22,6 +22,5 @@
 	<!-- #nav-search -->
 </div>
 <div class="well">
-	<h1>Accordion Menu With Icon</h1>
-	Admin Dashboard Accordion Menu
+	<h1>Dashboard</h1>
 </div>
