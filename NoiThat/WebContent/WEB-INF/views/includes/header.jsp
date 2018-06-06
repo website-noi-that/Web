@@ -1,271 +1,250 @@
 <!-- Người thực hiện : Huy Nhân -->
 
 <%@ page pageEncoding="utf-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<div class="container">
 
-<div class="hero">
-	<header class="container">
-		<div class="navbar-header">
-			<button class="navbar-toggle" type="button" data-toggle="collapse"
-				data-target=".js-navbar-collapse">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="#">Home Shop</a>
-		</div>
-		<nav class="navbar">
+	<!-- Header -->
+	<header class="row">
+
+		<div class="col-lg-12 col-md-12 col-sm-12">
+
+			<!-- Top Header -->
+			<div id="top-header">
+
+				<div class="row">
+
+					<nav id="top-navigation" class="col-lg-7 col-md-7 col-sm-7">
+						<ul class="pull-left">
+							<li><a href="create_an_account.html">Tài khoản của tôi</a></li>
+							<li><a href="orders_list.html">Danh sách đơn đặt hàng</a></li>
+							<li><a href="order_info.html">Kiểm tra</a></li>
+							<li><a href="text_page.html">Giới thiệu</a></li>
+							<li><a href="contact.html">Liên hệ</a></li>
+						</ul>
+					</nav>
 
 
-			<div class="collapse navbar-collapse js-navbar-collapse">
-				<ul class="nav navbar-nav">
-					<li class="dropdown mega-dropdown"><a href="#"
-						class="dropdown-toggle" data-toggle="dropdown">Bàn <span
-							class="caret"></span></a>
-						<ul class="dropdown-menu mega-dropdown-menu">
-							<li class="col-sm-3">
-								<ul>
-									<li class="dropdown-header">Men Collection</li>
-									<div id="menCollection" class="carousel slide"
-										data-ride="carousel">
-										<div class="carousel-inner">
-											<div class="item active">
-												<a href="#"><img
-													src="http://placehold.it/254x150/ff3546/f5f5f5/&text=New+Collection"
-													class="img-responsive" alt="product 1"></a>
-												<h4>
-													<small>Summer dress floral prints</small>
-												</h4>
-												<button class="btn btn-primary" type="button">49,99
-													€</button>
-												<button href="#" class="btn btn-default" type="button">
-													<span class="glyphicon glyphicon-heart"></span> Add to
-													Wishlist
-												</button>
-											</div>
-											<!-- End Item -->
-											<div class="item">
-												<a href="#"><img
-													src="http://placehold.it/254x150/3498db/f5f5f5/&text=New+Collection"
-													class="img-responsive" alt="product 2"></a>
-												<h4>
-													<small>Gold sandals with shiny touch</small>
-												</h4>
-												<button class="btn btn-primary" type="button">9,99
-													€</button>
-												<button href="#" class="btn btn-default" type="button">
-													<span class="glyphicon glyphicon-heart"></span> Add to
-													Wishlist
-												</button>
-											</div>
-											<!-- End Item -->
-											<div class="item">
-												<a href="#"><img
-													src="http://placehold.it/254x150/2ecc71/f5f5f5/&text=New+Collection"
-													class="img-responsive" alt="product 3"></a>
-												<h4>
-													<small>Denin jacket stamped</small>
-												</h4>
-												<button class="btn btn-primary" type="button">49,99
-													€</button>
-												<button href="#" class="btn btn-default" type="button">
-													<span class="glyphicon glyphicon-heart"></span> Add to
-													Wishlist
-												</button>
-											</div>
-											<!-- End Item -->
-										</div>
-										<!-- End Carousel Inner -->
-										<!-- Controls -->
-										<a class="left carousel-control" href="#menCollection"
-											role="button" data-slide="prev"> <span
-											class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-											<span class="sr-only">Previous</span>
-										</a> <a class="right carousel-control" href="#menCollection"
-											role="button" data-slide="next"> <span
-											class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-											<span class="sr-only">Next</span>
-										</a>
-									</div>
-									<!-- /.carousel -->
-									<li class="divider"></li>
-									<li><a href="#">View all Collection <span
-											class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
-								</ul>
-							</li>
-							<li class="col-sm-3">
-								<ul>
-									<li class="dropdown-header">Features</li>
-									<li><a href="#">Auto Carousel</a></li>
-									<li><a href="#">Carousel Control</a></li>
-									<li><a href="#">Left & Right Navigation</a></li>
-									<li><a href="#">Four Columns Grid</a></li>
-									<li class="divider"></li>
-									<li class="dropdown-header">Fonts</li>
-									<li><a href="#">Glyphicon</a></li>
-									<li><a href="#">Google Fonts</a></li>
-								</ul>
-							</li>
-							<li class="col-sm-3">
-								<ul>
-									<li class="dropdown-header">Plus</li>
-									<li><a href="#">Navbar Inverse</a></li>
-									<li><a href="#">Pull Right Elements</a></li>
-									<li><a href="#">Coloured Headers</a></li>
-									<li><a href="#">Primary Buttons & Default</a></li>
-								</ul>
-							</li>
-							<li class="col-sm-3">
-								<ul>
-									<li class="dropdown-header">Much more</li>
-									<li><a href="#">Easy to Customize</a></li>
-									<li><a href="#">Calls to action</a></li>
-									<li><a href="#">Custom Fonts</a></li>
-									<li><a href="#">Slide down on Hover</a></li>
-								</ul>
-							</li>
-						</ul></li>
-					<li class="dropdown mega-dropdown"><a href="#"
-						class="dropdown-toggle" data-toggle="dropdown">Ghế <span
-							class="caret"></span></a>
-						<ul class="dropdown-menu mega-dropdown-menu">
-							<li class="col-sm-3">
-								<ul>
-									<li class="dropdown-header">Features</li>
-									<li><a href="#">Auto Carousel</a></li>
-									<li><a href="#">Carousel Control</a></li>
-									<li><a href="#">Left & Right Navigation</a></li>
-									<li><a href="#">Four Columns Grid</a></li>
-									<li class="divider"></li>
-									<li class="dropdown-header">Fonts</li>
-									<li><a href="#">Glyphicon</a></li>
-									<li><a href="#">Google Fonts</a></li>
-								</ul>
-							</li>
-							<li class="col-sm-3">
-								<ul>
-									<li class="dropdown-header">Plus</li>
-									<li><a href="#">Navbar Inverse</a></li>
-									<li><a href="#">Pull Right Elements</a></li>
-									<li><a href="#">Coloured Headers</a></li>
-									<li><a href="#">Primary Buttons & Default</a></li>
-								</ul>
-							</li>
-							<li class="col-sm-3">
-								<ul>
-									<li class="dropdown-header">Much more</li>
-									<li><a href="#">Easy to Customize</a></li>
-									<li><a href="#">Calls to action</a></li>
-									<li><a href="#">Custom Fonts</a></li>
-									<li><a href="#">Slide down on Hover</a></li>
-								</ul>
-							</li>
-							<li class="col-sm-3">
-								<ul>
-									<li class="dropdown-header">Women Collection</li>
-									<div id="womenCollection" class="carousel slide"
-										data-ride="carousel">
-										<div class="carousel-inner">
-											<div class="item active">
-												<a href="#"><img
-													src="http://placehold.it/254x150/3498db/f5f5f5/&text=New+Collection"
-													class="img-responsive" alt="product 1"></a>
-												<h4>
-													<small>Summer dress floral prints</small>
-												</h4>
-												<button class="btn btn-primary" type="button">49,99
-													€</button>
-												<button href="#" class="btn btn-default" type="button">
-													<span class="glyphicon glyphicon-heart"></span> Add to
-													Wishlist
-												</button>
-											</div>
-											<!-- End Item -->
-											<div class="item">
-												<a href="#"><img
-													src="http://placehold.it/254x150/ff3546/f5f5f5/&text=New+Collection"
-													class="img-responsive" alt="product 2"></a>
-												<h4>
-													<small>Gold sandals with shiny touch</small>
-												</h4>
-												<button class="btn btn-primary" type="button">9,99
-													€</button>
-												<button href="#" class="btn btn-default" type="button">
-													<span class="glyphicon glyphicon-heart"></span> Add to
-													Wishlist
-												</button>
-											</div>
-											<!-- End Item -->
-											<div class="item">
-												<a href="#"><img
-													src="http://placehold.it/254x150/2ecc71/f5f5f5/&text=New+Collection"
-													class="img-responsive" alt="product 3"></a>
-												<h4>
-													<small>Denin jacket stamped</small>
-												</h4>
-												<button class="btn btn-primary" type="button">49,99
-													€</button>
-												<button href="#" class="btn btn-default" type="button">
-													<span class="glyphicon glyphicon-heart"></span> Add to
-													Wishlist
-												</button>
-											</div>
-											<!-- End Item -->
-										</div>
-										<!-- End Carousel Inner -->
-										<!-- Controls -->
-										<a class="left carousel-control" href="#womenCollection"
-											role="button" data-slide="prev"> <span
-											class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-											<span class="sr-only">Previous</span>
-										</a> <a class="right carousel-control" href="#womenCollection"
-											role="button" data-slide="next"> <span
-											class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-											<span class="sr-only">Next</span>
-										</a>
-									</div>
-									<!-- /.carousel -->
-									<li class="divider"></li>
-									<li><a href="#">View all Collection <span
-											class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
-								</ul>
-							</li>
-						</ul></li>
-					<li><a href="#">Store locator</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-expanded="false">Tài
-							Khoản <span class="caret"></span>
-					</a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="#"><span class="glyphicon glyphicon-cog"></span>
-									Cài Đặt</a></li>
-							<li><a href="#"><span
-									class="glyphicon glyphicon-list-alt"></span> Hồ Sơ</a></li>
-							<li class="divider"></li>
-							<li><a href="#"><span
-									class="glyphicon glyphicon-log-out"></span> Đăng Xuất</a></li>
-						</ul></li>
+				</div>
 
-				</ul>
 			</div>
-			<!-- /.nav-collapse -->
-		</nav>
+			<!-- /Top Header -->
+
+
+
+			<!-- Main Header -->
+			<div id="main-header">
+
+				<div class="row">
+
+					<div id="logo" class="col-lg-4 col-md-4 col-sm-4">
+						<a href="home_v1.html"><img src="img/logo.png" alt="Logo"></a>
+					</div>
+
+					<nav id="middle-navigation" class="col-lg-8 col-md-8 col-sm-8">
+						<ul class="pull-right">
+							<li class="blue"><a href="compare_products.html"><i
+									class="icons icon-docs"></i>0 SP</a></li>
+							<li class="red"><a href="wishlist.html"><i
+									class="icons icon-heart-empty"></i>2 SP</a></li>
+
+							<!--		Giỏ hàng-->
+							<li class="orange"><a href="order_info.html"><i
+									class="icons icon-basket-2"></i>17 SP</a>
+								<ul id="cart-dropdown" class="box-dropdown parent-arrow">
+									<li>
+										<div class="box-wrapper parent-border">
+											<p>Các mục được thêm gần đây</p>
+
+
+
+											<table class="cart-table">
+												<tr>
+													<td><img src="img/products/sp1.PNG" alt="product"></td>
+													<td>
+														<h6>Tủ bếp thương hiệu Pháp</h6>
+														<p>Được nhập khẩu từ Pháp</p>
+													</td>
+													<td><span class="quantity"><span class="light">1
+																x</span> 8.000.000đ</span> <a href="#" class="parent-color">Xóa</a></td>
+												</tr>
+
+											</table>
+
+
+											<br class="clearfix">
+										</div>
+
+										<div class="footer">
+											<table class="checkout-table pull-right">
+												<tr>
+													<td class="align-right">Thuế:</td>
+													<td>10%</td>
+												</tr>
+												<tr>
+													<td class="align-right">Giảm giá:</td>
+													<td>200.000đ</td>
+												</tr>
+												<tr>
+													<td class="align-right"><strong>Tổng:</strong></td>
+													<td><strong class="parent-color">12.000.000đ</strong></td>
+												</tr>
+											</table>
+										</div>
+
+
+										<div class="box-wrapper no-border">
+											<a class="button pull-right parent-background" href="#">Kiểm
+												tra</a> <a class="button pull-right" href="order_info.html">Xem
+												giỏ hàng</a>
+										</div>
+
+									</li>
+								</ul></li>
+							<!--	=============Đóng phần Giỏ hàng==========================				-->
+							<li class="login-create purple"><i class="icons icon-user"></i>
+								<p>
+									Xin chào bạn!<a href="#">Đăng nhập </a> hoặc<br> <a
+										href="#">đăng ký</a>
+								</p> </li>
+						</ul>
+					</nav>
+
+				</div>
+
+			</div>
+			<!-- /Main Header -->
+
+
+			<!-- Main Navigation -->
+			<nav id="main-navigation" class="style3">
+				<ul>
+
+					<li class="home-green current-item"><a href="home_v1.html">
+							<span class="nav-caption">Home</span>
+					</a>
+
+						<ul class="normal-dropdown normalAnimation">
+							<li><a href="#">Danh mục<i class="icons icon-right-dir"></i></a>
+								<ul class="normalAnimation">
+									<li><a href="home_v1.html">Danh mục 1</a></li>
+									<li><a href="home_v2.html">Danh mục 2</a></li>
+									<li><a href="home_v3.html">Danh mục 3</a></li>
+								</ul></li>
+							<li><a href="#">Sản phẩm <i class="icons icon-right-dir"></i></a>
+								<ul class="normalAnimation">
+									<li><a href="home_v1.html">Sản phẩm 1</a></li>
+									<li><a href="home_v2.html">Sản phẩm 2</a></li>
+									<li><a href="home_v3.html">Sản phẩm 3</a></li>
+									<li><a href="category_v1.html">Sản phẩm 4</a></li>
+									<li><a href="category_v2.html">Sản phẩm 5</a></li>
+									<li><a href="products_page_v1.html">Sản phẩm 6</a></li>
+								</ul></li>
+
+							<li><a href="#">Giao diện <i
+									class="icons icon-right-dir"></i></a>
+								<ul class="normalAnimation">
+									<li><a href="home_v1.html">Giao diện 1</a></li>
+									<li><a href="home_v2.html">Giao diện 2</a></li>
+									<li><a href="home_v3.html">Giao diện 3</a></li>
+								</ul></li>
+						</ul></li>
+
+					<li class="red"><a href="#"> <span class="nav-caption">Sản
+								phẩm</span>
+					</a>
+
+						<ul class="wide-dropdown normalAniamtion">
+							<li>
+								<ul>
+									<li><span class="nav-caption">Phòng khách</span></li>
+									<li><a href="category_v1.html"><i
+											class="icons icon-right-dir"></i> Sofa</a></li>
+									<li><a href="category_v1.html"><i
+											class="icons icon-right-dir"></i> Bàn &amp; Tủ</a></li>
+									<li><a href="category_v1.html"><i
+											class="icons icon-right-dir"></i> Hàng trang trí</a></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><span class="nav-caption">Phòng ăn</span></li>
+									<li><a href="category_v1.html"><i
+											class="icons icon-right-dir"></i>Bàn ăn</a></li>
+									<li><a href="category_v1.html"><i
+											class="icons icon-right-dir"></i> Ghế</a></li>
+									<li><a href="category_v1.html"><i
+											class="icons icon-right-dir"></i> Tủ</a></li>
+									<li><a href="category_v1.html"><i
+											class="icons icon-right-dir"></i> Hàng trang trí</a></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><span class="nav-caption">Phòng ngủ</span></li>
+									<li><a href="category_v1.html"><i
+											class="icons icon-right-dir"></i> Giường</a></li>
+									<li><a href="category_v1.html"><i
+											class="icons icon-right-dir"></i>Tủ &amp;Bàn</a></li>
+									<li><a href="category_v1.html"><i
+											class="icons icon-right-dir"></i> Tranh ảnh </a></li>
+									<li><a href="category_v1.html"><i
+											class="icons icon-right-dir"></i> Hàng trang trí</a></li>
+								</ul>
+							</li>
+						</ul></li>
+
+					<li class="blue"><a href="category_v2.html"> <span
+							class="nav-caption">Giới thiệu</span>
+					</a></li>
+
+
+
+					<li class="green"><a href="blog.html"> <span
+							class="nav-caption">Tin tức</span>
+					</a></li>
+
+					<li class="purple"><a href="contact.html"> <span
+							class="nav-caption">Liên hệ</span>
+					</a></li>
+
+					<li class="nav-search"><i class="icons icon-search-1"></i></li>
+
+				</ul>
+
+				<div id="search-bar">
+
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<table id="search-bar-table">
+							<tr>
+								<td class="search-column-1">
+									<p>
+										<span class="grey">Tìm kiếm:</span> <a href="#">Bàn</a>, <a
+											href="#">ghế</a>, <a href="#">tủ</a>, <a href="#">hàng
+											trang trí</a>,<a href="#">khác</a>
+									</p> <input type="text" placeholder="Nhập từ khóa của bạn">
+								</td>
+								<td class="search-column-2">
+									<p class="align-right">
+										<a href="#">Tìm kiếm nâng cao</a>
+									</p> <select class="chosen-select-search">
+										<option>Danh mục 1</option>
+										<option>Danh mục 2</option>
+										<option>Danh mục 3</option>
+								</select>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div id="search-button">
+						<input type="submit" value=""> <i
+							class="icons icon-search-1"></i>
+					</div>
+				</div>
+
+			</nav>
+			<!-- /Main Navigation -->
+
+		</div>
+
 	</header>
-</div>
-<script>
-	$(document).ready(
-			function() {
-				$(".dropdown").hover(
-						function() {
-							$('.dropdown-menu', this).not('.in .dropdown-menu')
-									.stop(true, true).slideDown("400");
-							$(this).toggleClass('open');
-						},
-						function() {
-							$('.dropdown-menu', this).not('.in .dropdown-menu')
-									.stop(true, true).slideUp("400");
-							$(this).toggleClass('open');
-						});
-			});
-</script>

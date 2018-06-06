@@ -15,8 +15,4 @@ public class HomeController {
 	public String login(ModelMap model) {
 		return "user/index";
 	}
-	@RequestMapping(value = "index1")
-	public String index(ModelMap model) {
-		return "user/index1";
-	}
 }

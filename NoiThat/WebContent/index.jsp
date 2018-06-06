@@ -4,7 +4,7 @@
 <html>
 <head>
 <base href="${pageContext.servletContext.contextPath}" />
-<meta content="0;url=${contextPath}/NoiThat/admin/admin-login.htm"
+<meta content="0;url=${contextPath}/NoiThat/index.htm"
 	http-equiv="refresh" />
 <title>Trang Chu</title>
 </head>

@@ -17,7 +17,7 @@
 
 		<ul class="nav navbar-nav navbar-right">
 			<li class="light-blue"><a href="#" class="dropdown-toggle"
-				data-toggle="dropdown">   <strong>Xin Chào, Mày</strong> <span
+				data-toggle="dropdown">   <strong>Xin Chào</strong> <span
 					class="glyphicon glyphicon-triangle-bottom"></span>
 			</a>
 
@@ -97,7 +97,7 @@
 					<li class="nav-header"><i class="icon-envelope-alt"></i> 5 Tin
 						nhắn</li>
 
-					<li><a href="#"> <img src="../admin/avatars/avatar.png"
+					<li><a href="#"> <img src="avatars/avatar.png"
 							class="msg-photo" alt="Alex's Avatar" /> <span class="msg-body">
 								<span class="msg-title"> <span class="blue">Tâm:</span>
 									Tôi muốn đươc tư vấn về sản phẩm ...

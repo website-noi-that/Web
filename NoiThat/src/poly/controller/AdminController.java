@@ -10,10 +10,12 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.apache.tomcat.jni.User;
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,7 +26,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import poly.entity.Quyen;
 import poly.entity.Users;
 
 @Controller
@@ -39,14 +40,14 @@ public class AdminController {
 		model.addAttribute("login", new Users());
 		return "admin/dangnhap";
 	}
-	
+
 	@Transactional
-	@RequestMapping(value = "admin-login")
+	@RequestMapping(value = "admin-login", method = RequestMethod.GET)
 	public String adminlogin(ModelMap model) {
 		model.addAttribute("login", new Users());
 		return "admin/admin-login";
 	}
-	
+
 	@Transactional
 	@RequestMapping("index")
 	public String index() {
@@ -55,46 +56,39 @@ public class AdminController {
 
 	@Transactional
 	@RequestMapping(value = "Login", method = RequestMethod.POST)
-	public String login(ModelMap model, @ModelAttribute("login") Users user, HttpServletRequest request,
-			HttpServletResponse response) {
-
-		HttpSession session1 = request.getSession();
-		Session session = factory.getCurrentSession();
-		String hql = "from Users where TenDangNhap = '" + user.getTenDangNhap().trim() + "'";
-		Query query = session.createQuery(hql);
-		Users u = (Users) query.uniqueResult();
+	public String login(ModelMap model, @ModelAttribute("login") Users user, HttpServletResponse response) {
+		Session session = factory.openSession();
+		Transaction t = session.beginTransaction();
 		try {
-			if (u == null) {
+			Criteria cr = session.createCriteria(Users.class);
+			cr.add(Restrictions.or(Restrictions.eq("TenDangNhap", user.getTenDangNhap())));
+			Users us = (Users) cr.uniqueResult();
+			if (us == null) {
 				model.addAttribute("messager1", "Tài Khoản Không Tồn Tại");
 				return "admin/admin-login";
 			}
-			if (u.getMatKhau().equals(MD5Library.md5(user.getMatKhau()))) {
-				// if (u.getMaUsers().equals("admin")) {
-				session1.setAttribute("username", u.getTenDangNhap());
-				session1.setAttribute("quyen", u.getMaQuyen());
-				// Create cookies
-				Cookie username = new Cookie("username", u.getTenDangNhap());
-			    Cookie pass = new Cookie("pass", u.getMatKhau());
-				Cookie idquyen = new Cookie("quyen", u.getMaQuyen().toString());
-				username.setMaxAge(0);
-		        pass.setMaxAge(0);
-				// Thêm cả cookie vào response.
-				response.addCookie(username);
-				response.addCookie(pass);
-				response.addCookie(idquyen);
-				// return "redirect:admin.htm";
-				// } else {
-				//
-				// return "redirect:index.htm";
-				// }
+			if (us.getMatKhau().equals(MD5Library.toMD5(user.getMatKhau()))) {
+				t.commit();
+//				// Create cookies
+//				Cookie username = new Cookie("us", user.getTenDangNhap());
+//				Cookie quyen = new Cookie("pq", user.getMaQuyen().toString());
+//
+//				username.setMaxAge(10000);
+//				quyen.setMaxAge(10000);
+//
+//				// Thêm cả cookie vào response.
+//				response.addCookie(username);
+//				response.addCookie(quyen);
+				
 				return "redirect:index.htm";
 			} else {
-				model.addAttribute("user", user.getTenDangNhap());
 				model.addAttribute("messager2", "Mật Khẩu Sai");
 				return "admin/admin-login";
 			}
 		} catch (Exception e) {
-			model.addAttribute("messager1", "lỗi kết nối");
+			t.rollback();
+			System.out.println(e.getMessage());
+			model.addAttribute("messager1", "Lỗi Đăng Nhập ");
 			return "admin/admin-login";
 		}
 	}
@@ -102,11 +96,11 @@ public class AdminController {
 	@RequestMapping("logout")
 	public String logout(HttpServletResponse response) {
 		Cookie username = new Cookie("username", "");
-		Cookie pass = new Cookie("pass", "");
-		Cookie idquyen = new Cookie("quyen", "");
+		Cookie quyen = new Cookie("quyen", "");
+		username.setMaxAge(0);
+		quyen.setMaxAge(0);
 		response.addCookie(username);
-		response.addCookie(pass);
-		response.addCookie(idquyen);
+		response.addCookie(quyen);
 		return "redirect:admin-login.htm";
 	}
 
@@ -137,7 +131,7 @@ public class AdminController {
 	public String add(ModelMap model, @Valid @ModelAttribute("Adduser") Users Us, BindingResult result) {
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
-		String MD5 = MD5Library.md5(Us.getMatKhau());
+		String MD5 = MD5Library.toMD5(Us.getMatKhau());
 		Us.setMatKhau(MD5);
 		if (result.hasErrors()) {
 			return "admin/tk-admin/them";
@@ -198,7 +192,7 @@ public class AdminController {
 	public String edit(ModelMap model, @ModelAttribute("edituser") Users Us, @PathVariable("id") String id) {
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
-		String MD5 = MD5Library.md5(Us.getMatKhau());
+		String MD5 = MD5Library.toMD5(Us.getMatKhau());
 		Us.setMatKhau(MD5);
 		try {
 			session.update(id, Us);

@@ -2,16 +2,35 @@
 
 <%@ page pageEncoding="utf-8"%>
 
-<title>Trang Chủ</title>
+
+
+<!-- Meta Tags -->
 <meta charset="utf-8">
-<base href="${pageContext.servletContext.contextPath}"/>
-<meta name="description"
-	content="Dynamic tables and grids using jqGrid plugin">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- bootstrap 3 -->
-<!-- Latest compiled and minified CSS -->
-<link href="${contextPath}/NoiThat/css/style-admin.css" rel="stylesheet">
-<link href="${contextPath}/NoiThat/css/bootstrap.min.css"
-	rel="stylesheet">
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<link rel="stylesheet" href="${contextPath}/NoiThat/css/style-index.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="${pageContext.servletContext.contextPath}/" />
+<!-- Title -->
+<title>HomeShop - HTML Template</title>
+
+<!-- Fonts -->
+<link
+	href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,900,700italic,500italic'
+	rel='stylesheet' type='text/css'>
+
+<!-- Stylesheets -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/perfect-scrollbar.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/flexslider.css" type="text/css"
+	media="screen" />
+<link rel="stylesheet" href="css/fontello.css">
+<link rel="stylesheet" href="css/animation.css">
+<link rel="stylesheet" href="css/owl.carousel.css">
+<link rel="stylesheet" href="css/owl.theme.css">
+<link rel="stylesheet" href="css/chosen.css">
+<!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<link rel="stylesheet" href="css/ie.css">
+        <![endif]-->
+<!--[if IE 7]>
+			<link rel="stylesheet" href="css/fontello-ie7.css">
+		<![endif]-->

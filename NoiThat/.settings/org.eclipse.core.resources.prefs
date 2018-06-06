@@ -1,7 +1,6 @@
 eclipse.preferences.version=1
 encoding//WebContent/WEB-INF/views/admin/index.jsp=UTF-8
 encoding//WebContent/WEB-INF/views/includes/head.jsp=UTF-8
-encoding//WebContent/WEB-INF/views/user/index.jsp=UTF-8
+encoding//WebContent/css/fontello.css=UTF-8
 encoding//src/poly/controller/AdminController.java=UTF-8
-encoding//src/poly/controller/QuyenController.java=UTF-8
 encoding//src/poly/entity/Users.java=UTF-8

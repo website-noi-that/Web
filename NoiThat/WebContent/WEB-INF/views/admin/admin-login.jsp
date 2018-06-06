@@ -42,7 +42,6 @@
 }
 
 body {
-	background: url(../img/admin-login.jpg) fixed;
 	min-height: 500px;
 	background-attachment: fixed;
 	background-position: center;
@@ -50,9 +49,6 @@ body {
 	background-size: cover;
 }
 
-h2 {
-	color: white;
-}
 
 .form {
 	margin-top: 40%;
@@ -67,44 +63,25 @@ h2 {
 </style>
 </head>
 <body>
-	<%
-		Cookie[] listCookie = request.getCookies();
-		String username = "";
-		String pass = "";
-		String idquyen = "";
-		int co = 0;
-		if (listCookie != null) {
-			while (co < listCookie.length) {
-				if (listCookie[co].getName().equals("username")) {
-					username = listCookie[co].getValue();
-				}
-				if (listCookie[co].getName().equals("pass")) {
-					pass = listCookie[co].getValue();
-				}
-				co++;
-			}
-
-		}
-	%>
+	
 	<div class="container">
-
 		<div class="row">
 			<div
 				class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-				<form role="form" class="form" action="Login.htm"
+				<form class="form" action="Login.htm"
 					modelAttribute="login" method="POST">
 					<fieldset>
 						<h2>Đăng Nhập</h2>
 						<hr class="colorgraph">
 						<div class="form-group">
 							<input type="text" name="TenDangNhap" id="TenDangNhap"
-								class="form-control input-lg" placeholder="Tài Khoản" value="<%out.print(username);%>"> <span
+								class="form-control input-lg" placeholder="Tài Khoản" > <span
 								class="loi">${messager1}</span>
 
 						</div>
 						<div class="form-group">
 							<input type="password" name="MatKhau" id="MatKhau"
-								class="form-control input-lg" placeholder="Mật Khẩu" value="<%out.print(pass);%>"> <span
+								class="form-control input-lg" placeholder="Mật Khẩu"> <span
 								class="loi">${messager2}</span>
 						</div>
 						<hr class="colorgraph">
