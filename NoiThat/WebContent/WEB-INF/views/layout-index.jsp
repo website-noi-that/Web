@@ -1,4 +1,3 @@
-
 <%
 	String view = request.getParameter("view");
 	if (view.startsWith("admin/dangnhap")) {

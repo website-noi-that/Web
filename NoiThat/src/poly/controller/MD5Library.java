@@ -6,16 +6,18 @@ import java.security.NoSuchAlgorithmException;
 
 public class MD5Library {
 	public static String toMD5(String str){
-		String result = "";
-		MessageDigest digest;
+		String md5 = null;
+		if(null == str) {
+			return null;
+		}
+		
 		try {
-			digest = MessageDigest.getInstance("MD5");
-			digest.update(str.getBytes());
-			BigInteger bigInteger = new BigInteger(1,digest.digest());
-			result = bigInteger.toString(16);
-		} catch (NoSuchAlgorithmException e) {
+			MessageDigest digest = MessageDigest.getInstance("MD5");
+			digest.update(str.getBytes(), 0, str.length());
+			md5 = new BigInteger(1, digest.digest()).toString(16);
+		}catch(NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
-		return result;
+		return md5;
 	}
 }

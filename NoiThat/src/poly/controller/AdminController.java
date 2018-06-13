@@ -69,17 +69,17 @@ public class AdminController {
 			}
 			if (us.getMatKhau().equals(MD5Library.toMD5(user.getMatKhau()))) {
 				t.commit();
-//				// Create cookies
-//				Cookie username = new Cookie("us", user.getTenDangNhap());
-//				Cookie quyen = new Cookie("pq", user.getMaQuyen().toString());
-//
-//				username.setMaxAge(10000);
-//				quyen.setMaxAge(10000);
-//
-//				// Thêm cả cookie vào response.
-//				response.addCookie(username);
-//				response.addCookie(quyen);
-				
+				// // Create cookies
+				// Cookie username = new Cookie("us", user.getTenDangNhap());
+				// Cookie quyen = new Cookie("pq", user.getMaQuyen().toString());
+				//
+				// username.setMaxAge(10000);
+				// quyen.setMaxAge(10000);
+				//
+				// // Thêm cả cookie vào response.
+				// response.addCookie(username);
+				// response.addCookie(quyen);
+
 				return "redirect:index.htm";
 			} else {
 				model.addAttribute("messager2", "Mật Khẩu Sai");

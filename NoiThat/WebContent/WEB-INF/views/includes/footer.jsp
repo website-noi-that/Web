@@ -15,21 +15,19 @@
 			<div class="row">
 
 				<!-- Information -->
-				<div class="col-lg-3 col-md-3 col-sm-6">
-					<h4>Information</h4>
+				<div class="col-lg-6 col-md-6 col-sm-6">
+					<h4>Thông Tin</h4>
 					<ul>
 						<li><a href="#"><i class="icons icon-right-dir"></i>
-								About Us</a></li>
-						<li><a href="#"><i class="icons icon-right-dir"></i> New
-								Collection</a></li>
+								Giới Thiệu</a></li>
 						<li><a href="#"><i class="icons icon-right-dir"></i>
-								Bestsellers</a></li>
+								Sưu Tập Mới</a></li>
 						<li><a href="#"><i class="icons icon-right-dir"></i>
-								Manufacturers</a></li>
+								Nhà Sản Xuất</a></li>
 						<li><a href="#"><i class="icons icon-right-dir"></i>
-								Privacy Policy</a></li>
+								Chính Sách Bảo Mật</a></li>
 						<li><a href="#"><i class="icons icon-right-dir"></i>
-								Terms &amp; Conditions</a></li>
+								Điều khoản &amp; Điều kiện</a></li>
 					</ul>
 				</div>
 				<!-- /Information -->
@@ -46,8 +44,8 @@
 
 
 				<!-- Contact Us -->
-				<div class="col-lg-3 col-md-3 col-sm-6 contact-footer-info">
-					<h4>Contact Us</h4>
+				<div class="col-lg-6 col-md-6 col-sm-6 contact-footer-info">
+					<h4>Liên Hệ Chúng Tôi</h4>
 					<ul>
 						<li><i class="icons icon-location"></i>27 Nguyễn Tất Thành-
 							TP.BMT</li>
@@ -92,7 +90,7 @@
 
 				<div class="col-lg-6 col-md-6 col-sm-6">
 					<p class="copyright">
-						Copyright 2018 <a href="#">HomeShop</a>. All Rights Reserved.
+						Copyright 2018 <a href="#">HomeShop</a>.
 					</p>
 				</div>
 

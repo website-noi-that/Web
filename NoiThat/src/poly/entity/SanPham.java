@@ -10,9 +10,9 @@ import javax.persistence.Table;
 public class SanPham {
 	@Id
 	@GeneratedValue
-	private String MaUsers;
-	private String TenDangNhap;
-	private String MatKhau;
+	private String MaSP;
+	private String TenSP;
+	private String Xuat;
 	private String TrangThai;
 	private String MaQuyen;
 }
