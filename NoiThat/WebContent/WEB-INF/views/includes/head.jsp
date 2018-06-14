@@ -25,6 +25,7 @@
 	<link rel="stylesheet" href="css/owl.carousel.css">
 	<link rel="stylesheet" href="css/owl.theme.css">
 	<link rel="stylesheet" href="css/chosen.css">
+	<link rel="stylesheet" href="css/product-style.css">
 	<!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 			<link rel="stylesheet" href="css/ie.css">

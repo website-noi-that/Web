@@ -137,7 +137,22 @@
 				<div class="carousel owl-carousel-wrap col-lg-12 col-md-12 col-sm-12">
 
 					<div class="owl-carousel" data-max-items="3">
-
+						<c:forEach var="a" items="${list-sp}">
+                            <tr>
+                                <td>${a.maSP}</td>
+                                <td>${a.tenSP}</td>
+                                <td>${a.xuatXu}</td>
+                                <td>${a.soluong}</td>
+                                <td>${a.donViTinh}</td>
+                                <td>${a.giaBan}</td>
+                                <td>${a.tinhTrang}</td>
+                                <td>${a.hinh}</td>
+                                <td>${a.tieuDe}</td>
+                                <td>${a.tieuDe}</td>
+                                <td>${a.maSP}</td>
+                                <td>${a.maSP}</td>
+                            </tr>
+                        
 						<!-- Slide -->
 						<div>
 							<!-- Carousel Item -->
@@ -182,6 +197,7 @@
 							</div>
 							<!-- /Carousel Item -->
 						</div>
+						</c:forEach>
 						<!-- /Slide -->
 
 

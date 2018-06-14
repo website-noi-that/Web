@@ -32,38 +32,46 @@ public class LogonController {
 			@ModelAttribute("MatKhau1") String mk1) {
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
-		System.out.println("Mật khẩu nhập lại " + mk1);
-		System.out.println("mật khẩu " + Us.getMatKhau());
-
-		String kytu = "/[A-Za-z0-9]/";
-		Pattern r = Pattern.compile(kytu);
-
+		Pattern p = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
+		Matcher m = p.matcher(Us.getTenDangNhap());
+		boolean b = m.find();
 		Criteria cr = session.createCriteria(Users.class);
 		cr.add(Restrictions.or(Restrictions.eq("TenDangNhap", Us.getTenDangNhap())));
 		Users us = (Users) cr.uniqueResult();
 		if (us != null) {
-			model.addAttribute("messager", "Tài khoản không tồn tại !!!");
+			model.addAttribute("messager", "Tài khoản tồn tại !!!");
+			model.addAttribute("TK", Us.getTenDangNhap());
+			return "user/logon";
+		}else if (b) {
+			model.addAttribute("messager", "Tài Khoản chỉ hỗi trợ a > z, 0 > 9 !");
+			model.addAttribute("TK", Us.getTenDangNhap());
 			return "user/logon";
 		} else if (Us.getTenDangNhap() == null) {
 			model.addAttribute("messager", "Vui lòng nhập tên đăng nhập !");
 			return "user/logon";
 		} else if (Us.getMatKhau() == null) {
 			model.addAttribute("messager", "Vui lòng nhập mật khẩu !");
+			model.addAttribute("TK", Us.getTenDangNhap());
 			return "user/logon";
 		} else if (Us.getTenDangNhap().indexOf(" ") >= 1) {
 			model.addAttribute("messager", "Tài khoản không được khoảng trắng !");
+			model.addAttribute("TK", Us.getTenDangNhap());
 			return "user/logon";
 		} else if (Us.getTenDangNhap().length() < 3) {
 			model.addAttribute("messager", "Tài khoản phải lớn hơn 3 kí tự !");
+			model.addAttribute("TK", Us.getTenDangNhap());
 			return "user/logon";
 		} else if (Us.getTenDangNhap().length() > 50) {
 			model.addAttribute("messager", "Tài khoản phải nhỏ hơn 50 kí tự !");
+			model.addAttribute("TK", Us.getTenDangNhap());
 			return "user/logon";
 		} else if (Us.getMatKhau().length() < 6) {
 			model.addAttribute("messager", "Mật khẩu phải lớn hơn 6 kí tự !");
+			model.addAttribute("TK", Us.getTenDangNhap());
 			return "user/logon";
 		} else if (Us.getMatKhau().length() > 30) {
 			model.addAttribute("messager", "Mật khẩu phải nhỏ hơn 30 kí tự  !");
+			model.addAttribute("TK", Us.getTenDangNhap());
 			return "user/logon";
 		} else if (Us.getMatKhau().equals(mk1)) {
 			Us.setMaQuyen("khachhang");
@@ -93,4 +101,5 @@ public class LogonController {
 		}
 
 	}
+	
 }

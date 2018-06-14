@@ -190,29 +190,9 @@
 											</ul>
 										</li>
 										<li>
-											<a href="#">Sản phẩm
-												<i class="icons icon-right-dir"></i>
+											<a href="list-product.htm">Danh sách Sản phẩm
+												
 											</a>
-											<ul class="normalAnimation">
-												<li>
-													<a href="#">Sản phẩm 1</a>
-												</li>
-												<li>
-													<a href="#">Sản phẩm 2</a>
-												</li>
-												<li>
-													<a href="#">Sản phẩm 3</a>
-												</li>
-												<li>
-													<a href="#">Sản phẩm 4</a>
-												</li>
-												<li>
-													<a href="#">Sản phẩm 5</a>
-												</li>
-												<li>
-													<a href="#">Sản phẩm 6</a>
-												</li>
-											</ul>
 										</li>
 
 										<li>
