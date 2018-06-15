@@ -190,9 +190,18 @@
 											</ul>
 										</li>
 										<li>
-											<a href="list-product.htm">Danh sách Sản phẩm
-												
+											<a href="#">Sản phẩm
+												<i class="icons icon-right-dir"></i>
 											</a>
+											<ul class="normalAnimation">
+												<li>
+													<a href="list-product.htm">Danh sách</a>
+
+												</li>
+												<li>
+													<a href="add-product.htm">Thêm</a>
+												</li>
+											</ul>
 										</li>
 
 										<li>
@@ -304,7 +313,7 @@
 								</li>
 
 								<li class="purple">
-									<a href="#">
+									<a href="about.htm">
 										<span class="nav-caption">Liên hệ</span>
 									</a>
 								</li>

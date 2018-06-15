@@ -46,6 +46,10 @@ public class HomeController {
 		model.addAttribute("login", new Users());
 		return "user/login";
 	}
+	@RequestMapping(value = "about")
+	public String about(ModelMap model) {
+		return "user/about";
+	}
 
 	@RequestMapping(value = "logon")
 	public String logon(ModelMap model) {
