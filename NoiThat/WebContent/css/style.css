@@ -295,7 +295,7 @@ li.purple .box-dropdown:after {
 	top: 5px;
 }
 
-.box-dropdown input[type="text"] input[type="password"] {
+.box-dropdown input[type="text"] input[type="password"] input[type="number"]{
 	width: 100%;
 	background: #f7f7f7;
 	font-size: 14px;
@@ -355,7 +355,7 @@ li.purple .box-dropdown:after {
 	width: 350px;
 }
 
-.iconic-input input[type="text"] input[type="password"] {
+.iconic-input input[type="text"] input[type="password"] input[type="number"]{
 	width: 100%;
 	background: #f7f7f7;
 	font-size: 14px;
@@ -3078,6 +3078,7 @@ a .banner-item {
 
 .page-content input[type="text"],
 .page-content input[type="password"],
+.page-content input[type="number"],
 .page-content select {
 	width: 100%;
 	background: #f7f7f7;
@@ -3552,6 +3553,7 @@ table.product-actions-single input {
 }
 
 .char-counter input[type="text"],
+.char-counter input[type="number"],
 .char-counter input[type="password"] {
 	width: 100px !important;
 	margin-left: 5px;
@@ -3622,6 +3624,7 @@ table.product-actions-single input {
 
 .contact-form input[type="text"],
 .contact-form input[type="password"],
+.contact-form input[type="number"],
 .contact-form textarea {
 	margin-bottom: 15px;
 }
@@ -3765,11 +3768,6 @@ table span.action-name {
 	-o-opacity: 1;
 }
 
-.main-content input[type="number"] {
-	margin-bottom: 10px;
-	width: 80px;
-	display: block;
-}
 
 table span.add-to-cart {
 	background: #f5791f;
@@ -3953,7 +3951,7 @@ table.shopping-table .image-column {
 	width: 80px;
 }
 
-table.shopping-table .quantity input[type="text"] input[type="password"] {
+table.shopping-table .quantity input[type="text"] input[type="password"] input[type="number"], {
 	width: 80px;
 }
 
@@ -4014,7 +4012,7 @@ table.coupon-table td.fit-cell {
 	margin-top: 0;
 }
 
-#newsletter input[type="text"] input[type="password"] {
+#newsletter input[type="text"] input[type="password"] input[type="number"] {
 	width: 330px;
 	margin: 0 0 0 15px;
 	font-size: 14px;
@@ -4022,6 +4020,7 @@ table.coupon-table td.fit-cell {
 
 #newsletter input[type="text"],
 #newsletter input[type="submit"],
+#newsletter input[type="number"],
 #newsletter input[type="password"] {
 	height: 40px;
 }
@@ -4191,7 +4190,7 @@ table.coupon-table td.fit-cell {
 	margin: 0 !important;
 }
 
-#main-footer #newsletter input[type="text"] input[type="password"] {
+#main-footer #newsletter input[type="text"] input[type="password"] input[type="number"]{
 	width: 100%;
 	margin: 0 0 5px;
 }
@@ -4294,6 +4293,7 @@ table.coupon-table td.fit-cell {
 
 input[type="text"],
 input[type="password"],
+input[type="number"],
 select {
 	padding: 5px 10px;
 	border: 1px solid #e6e6e6;
@@ -4532,7 +4532,7 @@ input[type="checkbox"]:checked+label:before {
 	.social-media>* {
 		display: block;
 	}
-	#newsletter input[type="text"] input[type="password"] {
+	#newsletter input[type="text"] input[type="password"] input[type="number"]{
 		width: 300px;
 		margin: 0;
 		display: inline-block;
@@ -4748,7 +4748,7 @@ input[type="checkbox"]:checked+label:before {
 		float: none;
 		margin-top: 10px;
 	}
-	#newsletter input[type="text"] input[type="password"] {
+	#newsletter input[type="text"] input[type="password"] input[type="number"]{
 		margin: 0;
 	}
 	.social-media ul {
@@ -4892,7 +4892,7 @@ input[type="checkbox"]:checked+label:before {
 	.social-media>* {
 		display: block;
 	}
-	#newsletter input[type="text"] input[type="password"] {
+	#newsletter input[type="text"] input[type="password"] input[type="number"]{
 		width: 100%;
 		margin: 0;
 		display: inline-block;

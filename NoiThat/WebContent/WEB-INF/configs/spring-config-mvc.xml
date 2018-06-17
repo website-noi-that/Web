@@ -26,5 +26,10 @@
 	<!-- Cấu hình package chứa các controller -->
 	<context:component-scan
 		base-package="poly.controller" />
-
+<!--upload hình -->
+	<bean id="multipartResolver" 
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	 	<!-- maxUploadSize=20MB -->
+	 	<property name="maxUploadSize" value="20971520"/>
+	</bean>
 </beans>

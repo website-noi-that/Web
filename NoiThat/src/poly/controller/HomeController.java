@@ -16,6 +16,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,11 +34,6 @@ public class HomeController {
 	@Transactional
 	@RequestMapping(value = "index")
 	public String index(ModelMap model) {
-		Session session = factory.getCurrentSession();
-		String hql = "from SanPham";
-		Query query = session.createQuery(hql);
-		List<SanPham> list = query.list();
-		model.addAttribute("list-sp", list);
 		return "user/index";
 	}
 
@@ -46,6 +42,9 @@ public class HomeController {
 		model.addAttribute("login", new Users());
 		return "user/login";
 	}
+
+
+
 	@RequestMapping(value = "about")
 	public String about(ModelMap model) {
 		return "user/about";

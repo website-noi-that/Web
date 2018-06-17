@@ -13,7 +13,7 @@ import javax.persistence.Table;
 public class SanPham {
 	@Id
 	@GeneratedValue
-	private String MaSP;
+	private Integer MaSP;
 	private String TenSP;
 	private String XuatXu;
 	private Integer Soluong;
@@ -24,14 +24,12 @@ public class SanPham {
 	private String Hinh;
 	private String TieuDe;
 	private String ChiTiet;	
-	@ManyToOne
-	@JoinColumn(name="LoaiSP")
-	private LoaiSanPham loaisanpham;
+	private String LoaiSP;
 	private String GhiChu;
-	public String getMaSP() {
+	public Integer getMaSP() {
 		return MaSP;
 	}
-	public void setMaSP(String maSP) {
+	public void setMaSP(Integer maSP) {
 		MaSP = maSP;
 	}
 	public String getTenSP() {
@@ -94,11 +92,12 @@ public class SanPham {
 	public void setChiTiet(String chiTiet) {
 		ChiTiet = chiTiet;
 	}
-	public LoaiSanPham getLoaisanpham() {
-		return loaisanpham;
+	
+	public String getLoaiSP() {
+		return LoaiSP;
 	}
-	public void setLoaisanpham(LoaiSanPham loaisanpham) {
-		this.loaisanpham = loaisanpham;
+	public void setLoaiSP(String loaiSP) {
+		LoaiSP = loaiSP;
 	}
 	public String getGhiChu() {
 		return GhiChu;
@@ -106,9 +105,9 @@ public class SanPham {
 	public void setGhiChu(String ghiChu) {
 		GhiChu = ghiChu;
 	}
-	public SanPham(String maSP, String tenSP, String xuatXu, Integer soluong, String donViTinh, Double giaNhap,
-			Double giaBan, String tinhTrang, String hinh, String tieuDe, String chiTiet, LoaiSanPham loaisanpham,
-			String ghiChu) {
+	
+	public SanPham(Integer maSP, String tenSP, String xuatXu, Integer soluong, String donViTinh, Double giaNhap,
+			Double giaBan, String tinhTrang, String hinh, String tieuDe, String chiTiet, String loaiSP, String ghiChu) {
 		super();
 		MaSP = maSP;
 		TenSP = tenSP;
@@ -121,11 +120,12 @@ public class SanPham {
 		Hinh = hinh;
 		TieuDe = tieuDe;
 		ChiTiet = chiTiet;
-		this.loaisanpham = loaisanpham;
+		LoaiSP = loaiSP;
 		GhiChu = ghiChu;
 	}
+	
 	public SanPham(String tenSP, String xuatXu, Integer soluong, String donViTinh, Double giaNhap, Double giaBan,
-			String tinhTrang, String hinh, String tieuDe, String chiTiet, LoaiSanPham loaisanpham, String ghiChu) {
+			String tinhTrang, String hinh, String tieuDe, String chiTiet, String loaiSP, String ghiChu) {
 		super();
 		TenSP = tenSP;
 		XuatXu = xuatXu;
@@ -137,7 +137,7 @@ public class SanPham {
 		Hinh = hinh;
 		TieuDe = tieuDe;
 		ChiTiet = chiTiet;
-		this.loaisanpham = loaisanpham;
+		LoaiSP = loaiSP;
 		GhiChu = ghiChu;
 	}
 	public SanPham() {
