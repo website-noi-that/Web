@@ -19,7 +19,9 @@
 			<jsp:include page="includes/footer.jsp" />
 
 		</div>
-
+		<div id="back-to-top">
+			<i class="icon-up-dir"></i>
+		</div>
 
 
 		<!-- JavaScript -->

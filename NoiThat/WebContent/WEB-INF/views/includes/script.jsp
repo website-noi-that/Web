@@ -42,10 +42,7 @@
 	<!-- Main JS -->
 	<script defer src="js/bootstrap.min.js"></script>
 	<script src="js/main-script.js"></script>
-	<!--
-	<script src=”http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js&#8221; type=”text/javascript”></script>
 
-
-	<script src=”http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/additional-methods.min.js&#8221; type=”text/javascript”></script>
-	-->
+	
+	
 	

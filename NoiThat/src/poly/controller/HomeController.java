@@ -21,7 +21,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import poly.bean.Mailer;
 import poly.entity.SanPham;
 import poly.entity.Users;
 
@@ -30,10 +32,17 @@ import poly.entity.Users;
 public class HomeController {
 	@Autowired
 	SessionFactory factory;
+	@Autowired
+	Mailer mailer;
 
 	@Transactional
 	@RequestMapping(value = "index")
 	public String index(ModelMap model) {
+		Session session = factory.getCurrentSession();
+		Criteria cr = session.createCriteria(SanPham.class);
+		cr.add(Restrictions.eq("TinhTrang", "Hàng Mới"));
+		List<SanPham> list = cr.list();
+		model.addAttribute("listproductnew", list);
 		return "user/index";
 	}
 
@@ -43,11 +52,37 @@ public class HomeController {
 		return "user/login";
 	}
 
-
+	@RequestMapping(value = "products-page")
+	public String page(ModelMap model, @ModelAttribute(value = "id") Integer id) {
+		Session session = factory.openSession();
+		Criteria cr = session.createCriteria(SanPham.class);
+		cr.add(Restrictions.or(Restrictions.eq("MaSP", id)));
+		SanPham sp = (SanPham) cr.uniqueResult();
+		model.addAttribute("page", sp);
+		return "user/Product/page";
+	}
 
 	@RequestMapping(value = "about")
 	public String about(ModelMap model) {
+
 		return "user/about";
+	}
+
+	@RequestMapping(value = "sendabout", method = RequestMethod.POST)
+	public String send(ModelMap model, @RequestParam("contact-email") String from,
+			@RequestParam("contact-subject") String subject, @RequestParam("contact-message") String body) {
+		try {
+			// Gửi mail
+			mailer.send(from, "nhandh3012@gmail.com", subject, body);
+			model.addAttribute("messagesend", "Gửi email thành công !");
+			System.out.println("thanh cong");
+			return "user/send";
+		} catch (Exception ex) {
+			model.addAttribute("messagesend", "Gửi email thất bại !");
+			System.out.println("that bai " + ex.getMessage());
+			return "user/about";
+		}
+
 	}
 
 	@RequestMapping(value = "logon")

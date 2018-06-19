@@ -13,10 +13,10 @@
 			http://www.springframework.org/schema/tx/spring-tx.xsd
 			http://www.springframework.org/schema/mvc 
 			http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-
+	<mvc:annotation-driven />
 	<!-- Spring MVC Annotation -->
 	<context:annotation-config />
-	<mvc:annotation-driven />
+	
 
 	<!-- Cấu hình view -->
 	<bean id="viewResolver"
@@ -26,10 +26,11 @@
 	<!-- Cấu hình package chứa các controller -->
 	<context:component-scan
 		base-package="poly.controller" />
-<!--upload hình -->
+	<!--upload hình -->
 	<bean id="multipartResolver" 
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 	 	<!-- maxUploadSize=20MB -->
 	 	<property name="maxUploadSize" value="20971520"/>
 	</bean>
+	<mvc:annotation-driven />
 </beans>

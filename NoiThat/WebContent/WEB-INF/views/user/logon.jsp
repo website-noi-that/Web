@@ -70,3 +70,8 @@
 			<!-- /Main Content -->
 		</div>
 		<!-- /Content -->
+		<script>
+			window.onload = function () {
+				document.getElementById("TenDangNhap").focus();
+			};
+		</script>

@@ -23,13 +23,14 @@
                             <div class="row">
                                 <p style="color: red; text-align: left; padding-left: 15px; font-size: 18px;">${messager}</p>
                             </div>
-                            <form:form action="edit-product.htm?id=${editproduct.maSP}" modelAttribute="editproduct" method="POST" enctype="multipart/form-data">
+                            <form:form action="edit-product.htm?id=${editproduct.maSP}&anh=${anh}" modelAttribute="editproduct" method="POST" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-lg-2 col-md-3 col-sm-2">
                                         <p>Mã sản phẩm:</p>
                                     </div>
                                     <div class="col-lg-10 col-md-9 col-sm-10">
                                         <form:input type="text" path="MaSP" />
+                                        <form:errors path="MaSP" style="color:red"></form:errors>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -38,6 +39,7 @@
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-10">
                                         <form:input type="text" path="TenSP" />
+                                        <form:errors path="TenSP" style="color:red"></form:errors>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -46,6 +48,7 @@
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-10">
                                         <form:input type="text" path="XuatXu" />
+                                        <form:errors path="XuatXu" style="color:red"></form:errors>
                                     </div>
                                 </div>
 
@@ -55,12 +58,14 @@
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <form:input type="number" path="Soluong" />
+                                        <form:errors path="Soluong" style="color:red"></form:errors>
                                     </div>
                                     <div class="col-lg-2 col-md-2 col-sm-2">
                                         <p>Đơn vị tính:</p>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <form:input type="text" path="DonViTinh" />
+                                        <form:errors path="DonViTinh" style="color:red"></form:errors>
                                     </div>
                                 </div>
 
@@ -71,12 +76,14 @@
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <form:input type="number" path="GiaNhap" />
+                                        <form:errors path="GiaNhap" style="color:red"></form:errors>
                                     </div>
                                     <div class="col-lg-2 col-md-2 col-sm-2">
                                         <p>Giá bán:</p>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <form:input type="number" path="GiaBan" />
+                                        <form:errors path="GiaBan" style="color:red"></form:errors>
                                     </div>
                                 </div>
 
@@ -98,13 +105,12 @@
                                         <p>Hình:</p>
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-10">
-                                        <input type="file" name="photo" />
+                                        <input type="file" name="photo" value="${anh}"/>
                                     </div>
                                     <div class="col-lg-2 col-md-2 col-sm-2">
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-10">
-                                        <img src="img/product/${editproduct.hinh}">
-
+                                        <img src="img/product/${editproduct.hinh}" style="width: auto; height: 300px; padding: 20px;">
                                     </div>
                                 </div>
 
@@ -114,6 +120,7 @@
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-10">
                                         <form:input type="text" path="TieuDe" />
+                                        <form:errors path="TieuDe" style="color:red"></form:errors>
                                     </div>
                                 </div>
 
@@ -123,6 +130,7 @@
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-10">
                                         <form:input type="text" path="ChiTiet" />
+                                        <form:errors path="ChiTiet" style="color:red"></form:errors>
                                     </div>
                                 </div>
 
@@ -146,6 +154,7 @@
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-10">
                                         <form:input type="text" path="GhiChu" />
+                                        <form:errors path="GhiChu" style="color:red"></form:errors>
                                     </div>
                                 </div>
                                 <div class="row">

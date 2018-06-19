@@ -4,7 +4,9 @@ import java.io.File;
 import java.util.List;
 
 import javax.servlet.ServletContext;
+import javax.validation.Valid;
 
+import org.springframework.validation.BindingResult;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -61,29 +63,35 @@ public class ProductController {
 		Criteria cr = session.createCriteria(SanPham.class);
 		cr.add(Restrictions.or(Restrictions.eq("MaSP", id)));
 		SanPham sp = (SanPham) cr.uniqueResult();
-		System.out.println(sp.getMaSP());
-		System.out.println(sp.getTinhTrang());
-		System.out.println(sp.getLoaiSP());
 		model.addAttribute("editproduct", sp);
+		model.addAttribute("anh", sp.getHinh());
+		System.out.println(sp.getHinh());
 		return "user/Product/edit";
 	}
 
 	@RequestMapping(value = "edit-product", method = RequestMethod.POST)
 	public String editproduct(ModelMap model, @ModelAttribute(value = "editproduct") SanPham sp,
-			@RequestParam("photo") MultipartFile photo) {
-		// Lưu ảnh vào thư mục web
-		try {
-			String photoPath = context.getRealPath("/img/product/" + photo.getOriginalFilename());
-			photo.transferTo(new File(photoPath));
-			System.out.println(photoPath);
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			model.addAttribute("message", "Lỗi lưu file !");
-			return "redirect:edit-product.htm?id=" + sp.getMaSP();
+			@RequestParam("photo") MultipartFile photo, @ModelAttribute("anh") String anhGoc) {
+		System.out.println("anh goc" + anhGoc);
+		if (photo.isEmpty()) {
+			sp.setHinh(anhGoc);
+			System.out.println("1");
+		} else {
+			System.out.println("2");
+			// Lưu ảnh vào thư mục web
+			try {
+				String photoPath = context.getRealPath("/img/product/" + photo.getOriginalFilename());
+				photo.transferTo(new File(photoPath));
+				sp.setHinh(photo.getOriginalFilename());
+				System.out.println(photoPath);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+				model.addAttribute("message", "Lỗi lưu file !");
+				return "redirect:edit-product.htm?id=" + sp.getMaSP();
+			}
 		}
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
-		sp.setHinh(photo.getOriginalFilename());
 		try {
 			session.update(sp);
 			t.commit();
@@ -97,6 +105,7 @@ public class ProductController {
 		} finally {
 			session.close();
 		}
+
 	}
 
 	@RequestMapping(value = "delete-product")
@@ -121,6 +130,43 @@ public class ProductController {
 
 	@RequestMapping(value = "add-product")
 	public String addproduct(ModelMap model) {
+		model.addAttribute("sanpham", new SanPham());
 		return "user/Product/add";
+	}
+
+	@RequestMapping(value = "add-product", method = RequestMethod.POST)
+	public String insertproduct(ModelMap model, @ModelAttribute(value = "sanpham") @Valid SanPham sp, BindingResult bindingResult,
+			@RequestParam("photo") MultipartFile photo) {
+		// Lưu ảnh vào thư mục web
+		if (bindingResult.hasErrors()) {
+			System.out.println("errors");
+			return "user/Product/add";
+		} else {
+			try {
+				String photoPath = context.getRealPath("/img/product/" + photo.getOriginalFilename());
+				photo.transferTo(new File(photoPath));
+				System.out.println(photoPath);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+				model.addAttribute("message", "Lỗi lưu file !");
+				return "redirect:add-product.htm";
+			}
+			Session session = factory.openSession();
+			Transaction t = session.beginTransaction();
+			sp.setHinh(photo.getOriginalFilename());
+			try {
+				session.save(sp);
+				t.commit();
+				System.out.println("thêm thành công");
+				return "redirect:list-product.htm";
+			} catch (Exception e) {
+				t.rollback();
+				System.out.println(e.getMessage());
+				model.addAttribute("message", "Lỗi thêm dữ liệu!");
+				return "redirect:add-product.htm";
+			} finally {
+				session.close();
+			}
+		}
 	}
 }

@@ -24,16 +24,16 @@
                                 <th>Tình Trạng</th>
                                 <th>Hình</th>
                                 <th>Loại SP</th>
-                                <th></th>
-                                <th></th>
+                                
+                                <th><a href="#">Thêm</a></th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <td colspan="12">
+                                <td colspan="9">
 
                                     <div class="links">
-
+                                        
                                         <c:if test="${paginationProducts.totalPages > 1}">
                                             <c:forEach items="${paginationProducts.navigationPages}" var="page">
                                                 <c:if test="${page != -1 }">
@@ -57,13 +57,13 @@
                                     <td>${a.donViTinh}</td>
                                     <td>${a.giaBan}</td>
                                     <td>${a.tinhTrang}</td>
-                                    <td><img src="img/product/${a.hinh}" style="width: 60px; height: 50px">
-                                        </td>
+                                    <td>
+                                        <img src="img/product/${a.hinh}" style="width: 60px; height: 50px">
+                                    </td>
                                     <td>${a.loaiSP}</td>
                                     <td>
                                         <a href="edit-product.htm?id=${a.maSP}" type="button" class="btn btn-primary">Sửa</a>
-                                    </td>
-                                    <td>
+                                    
                                         <a href="delete-product.htm?id=${a.maSP}" type="button" class="btn btn-primary">Xóa</a>
                                     </td>
                                 </tr>
